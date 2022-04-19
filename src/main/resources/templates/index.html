@@ -12,22 +12,26 @@
     <div class="row app-container">
         <div class="col-4 info-input">
             <h3 class="text-light">Registro de productos</h3>
-            <form action="" method="post">
-                <div class="mb-3 mt-5">
+            <form th:action="@{/product/save}" method="post" th:object="${product}">
+                <div class="mb-3">
                     <label for="codigo" class="text-light">C&oacute;digo</label>
-                    <input type="text" name="codigo" id="codigo" class="form-control" required>
+                    <input type="text" th:field="*{code}" name="codigo" id="codigo" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="nombre" class="text-light">Nombre</label>
+                    <input type="text" th:field="*{name}" id="nombre" class="form-control" required>
                 </div>
                 <div class="mb-3">
                     <label for="cantidad" class="text-light">Cantidad a Facturar</label>
-                    <input type="number" name="cantidad" id="cantidad" class="form-control" required>
+                    <input type="number" th:field="*{quantity}" name="cantidad" id="cantidad" class="form-control" required>
                 </div>
                 <div class="mb-3">
                     <label for="descripcion" class="text-light">Descripcion</label>
-                    <input type="text" name="precio" id="descripcion" class="form-control" required>
+                    <input type="text" th:field="*{description}" name="precio" id="descripcion" class="form-control" required>
                 </div>
                 <div class="mb-3">
                     <label for="precio" class="text-light">Precio</label>
-                    <input type="text" name="precio" id="precio" class="form-control" required>
+                    <input type="text" th:field="*{unit_price}" name="precio" id="precio" class="form-control" required>
                 </div>
 
                 <button type="submit" class="submit mt-4 mb-2">Agregar producto</button>
