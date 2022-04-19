@@ -4,10 +4,38 @@
     <meta charset="UTF-8">
     <title>Laboratorio #1 - Segundo Periodo - AFE</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" href="/styles.css">
 </head>
 <body>
 
+<main class="container-fluid bg-dark full-height d-flex justify-content-center align-items-center">
+    <div class="row app-container">
+        <div class="col-4 info-input">
+            <h3 class="text-light">Registro de productos</h3>
+            <form action="" method="post">
+                <div class="mb-3">
+                    <label for="codigo" class="text-light">C&oacute;digo</label>
+                    <input type="text" name="codigo" id="codigo" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="cantidad" class="text-light">Cantidad a Facturar</label>
+                    <input type="number" name="cantidad" id="cantidad" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="descripcion" class="text-light">Descripcion</label>
+                    <input type="text" name="precio" id="descripcion" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="precio" class="text-light">Precio</label>
+                    <input type="text" name="precio" id="precio" class="form-control" required>
+                </div>
 
+                <button type="submit" class="btn btn-dark">Agregar producto</button>
+            </form>
+        </div>
+        <div class="col-8"></div>
+    </div>
+</main>
 
 <!-- SCRIPTS SECTION -->
 <!-- JQuery -->
@@ -18,7 +46,7 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <!-- @CUSTOM scripts -->
-<script src="../static/script.js"></script>
+<script src="/script.js"></script>
 
 </body>
 </html>
