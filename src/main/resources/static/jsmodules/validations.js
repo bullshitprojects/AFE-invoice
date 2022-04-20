@@ -4,13 +4,19 @@ const invalidChars = [
     'e'
 ]
 
+const invalidCharsQuantity = [
+    '-',
+    '+',
+    'e',
+    '.'
+]
+
 const validations = () => {
     $(document).ready(() => {
         $('#codigo').on('input', () => {
             if ($('#codigo').val().length > 8) {
                 $('#codigo').val($('#codigo').val().substring(0, 8));
             }
-            $('#codigo').val($('#codigo').val().replace(/[^0-9]/g, ''))
         })
 
         $('#nombre').on('input', () => {
@@ -26,7 +32,7 @@ const validations = () => {
         })
 
         $('#cantidad').keydown((e) => {
-            if (invalidChars.includes(e.key)) {
+            if (invalidCharsQuantity.includes(e.key)) {
                 e.preventDefault()
             }
         })

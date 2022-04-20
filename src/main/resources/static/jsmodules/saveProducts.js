@@ -42,7 +42,7 @@ const saveProduct = () => {
         e.preventDefault()
 
         // GET VALUES
-        const code = $('#codigo').val()
+        const code = $('#codigo').val().toUpperCase()
         const name = $('#nombre').val()
         const description = $('#descripcion').val()
         const quantity = $('#cantidad').val()

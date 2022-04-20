@@ -38,7 +38,7 @@ const getProducts = (isNewProduct) => {
             }
 
             if (json.length >= 1) {
-                $('#printContainer').html('<button class="clean" id="print">Imprimir Factura</button>')
+                $('#printContainer').html('<button class="clean" id="print">Generar Factura</button>')
             }
 
             // PLACE PRODUCTS INSIDE THE DOM
