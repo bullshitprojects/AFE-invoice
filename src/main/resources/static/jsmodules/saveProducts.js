@@ -24,7 +24,8 @@ const successSaveMessage = () => {
 const errorMessage = () => {
     Swal.fire({
         icon: 'error',
-        text: 'Ocurrió un problema al intentar guardar el Producto!'
+        text: 'Verifica que todos los campos estén llenos!',
+        confirmButtonText: 'Aceptar'
     })
 }
 
@@ -47,8 +48,6 @@ const saveProduct = () => {
             quantity,
             unit_price
         }
-
-        console.log(data)
 
         $.ajax({
             ...postConfigs,

@@ -5,6 +5,7 @@ const getProducts = () => {
     $(document).ready(() => {
         // CLEAR TABLE CONTENT
         $('#productData').html('')
+        $('#printContainer').html('')
 
         // GET DATA
         $.getJSON(urlGetProducts, (json) => {
@@ -21,6 +22,10 @@ const getProducts = () => {
                 const subtotal = json[i].quantity * json[i].unit_price
 
                 row.push(`<td> $${subtotal.toFixed(2)} </td>`)
+            }
+
+            if (json.length >= 1) {
+                $('#printContainer').html('<button class="clean" id="print">Imprimir Factura</button>')
             }
 
             // PLACE PRODUCTS INSIDE THE DOM

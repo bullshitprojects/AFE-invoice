@@ -9,11 +9,12 @@
 <body>
 
 <main class="container-fluid bg-dark full-height d-flex justify-content-center align-items-center">
-    <div class="row app-container">
+    <div class="row app-container g-5">
+        <h1 class="mt-5 mb-3 text-light text-center">PASTELITO S.A de C.V</h1>
         <div class="col-4 info-input">
-            <h3 class="text-light">Registro de productos</h3>
-            <form action="#" method="post">
-                <div class="mb-3">
+            <h3 class="text-light mt-3">Registro de productos</h3>
+            <form action="#" method="post" autocomplete="off">
+                <div class="mb-3 mt-5">
                     <label for="codigo" class="text-light">C&oacute;digo</label>
                     <input type="text" id="codigo" class="form-control" required>
                 </div>
@@ -31,11 +32,11 @@
                 </div>
                 <div class="mb-3">
                     <label for="precio" class="text-light">Precio Unitario</label>
-                    <input type="text" id="precio" class="form-control" required>
+                    <input type="number" step=".01" id="precio" class="form-control" required>
                 </div>
 
-                <button id="saveProduct" type="submit" class="submit mt-4 mb-2">Agregar producto</button>
-                <button id="cleanTable" type="submit" class="clean mt-4 mb-2 ms-3">Limpiar Tabla</button>
+                <button id="saveProduct" type="submit" class="submit mt-4 mb-3">Agregar producto</button>
+                <button id="cleanTable" type="submit" class="clean mt-4 mb-3 ms-3">Limpiar Tabla</button>
             </form>
         </div>
         <div class="col-8">
@@ -54,6 +55,7 @@
 
                 </tbody>
             </table>
+            <div id="printContainer" class="d-flex w-100 justify-content-end"></div>
         </div>
     </div>
 </main>
