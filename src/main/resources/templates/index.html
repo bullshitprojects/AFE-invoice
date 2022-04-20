@@ -12,46 +12,60 @@
     <div class="row app-container">
         <div class="col-4 info-input">
             <h3 class="text-light">Registro de productos</h3>
-            <form th:action="@{/product/save}" method="post" th:object="${product}">
+            <form action="#" method="post">
                 <div class="mb-3">
                     <label for="codigo" class="text-light">C&oacute;digo</label>
-                    <input type="text" th:field="*{code}" name="codigo" id="codigo" class="form-control" required>
+                    <input type="text" id="codigo" class="form-control" required>
                 </div>
                 <div class="mb-3">
                     <label for="nombre" class="text-light">Nombre</label>
-                    <input type="text" th:field="*{name}" id="nombre" class="form-control" required>
+                    <input type="text" id="nombre" class="form-control" required>
                 </div>
                 <div class="mb-3">
                     <label for="cantidad" class="text-light">Cantidad a Facturar</label>
-                    <input type="number" th:field="*{quantity}" name="cantidad" id="cantidad" class="form-control" required>
+                    <input type="number" id="cantidad" class="form-control" required>
                 </div>
                 <div class="mb-3">
                     <label for="descripcion" class="text-light">Descripcion</label>
-                    <input type="text" th:field="*{description}" name="precio" id="descripcion" class="form-control" required>
+                    <input type="text" id="descripcion" class="form-control" required>
                 </div>
                 <div class="mb-3">
-                    <label for="precio" class="text-light">Precio</label>
-                    <input type="text" th:field="*{unit_price}" name="precio" id="precio" class="form-control" required>
+                    <label for="precio" class="text-light">Precio Unitario</label>
+                    <input type="text" id="precio" class="form-control" required>
                 </div>
 
-                <button type="submit" class="submit mt-4 mb-2">Agregar producto</button>
-                <button id="clean" class="submit mt-4 mb-2 ms-3">Limpiar</button>
+                <button id="saveProduct" type="submit" class="submit mt-4 mb-2">Agregar producto</button>
+                <button id="cleanTable" type="submit" class="clean mt-4 mb-2 ms-3">Limpiar Tabla</button>
             </form>
         </div>
-        <div class="col-8"></div>
+        <div class="col-8">
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">C&oacute;digo</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Descripci&oacute;n</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody id="productData">
+
+                </tbody>
+            </table>
+        </div>
     </div>
 </main>
 
 <!-- SCRIPTS SECTION -->
 <!-- JQuery -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
+<script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
 <!-- Sweet Alert 2 -->
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <!-- @CUSTOM scripts -->
-<script src="/script.js"></script>
+<script src="/script.js" type="module"></script>
 
 </body>
 </html>
