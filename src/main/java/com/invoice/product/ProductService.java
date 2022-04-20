@@ -7,13 +7,18 @@ import java.util.List;
 
 @Service
 public class ProductService {
-    @Autowired private ProductRepository repo;
+    @Autowired
+    private ProductRepository repo;
 
-    public List<Product> listAll(){
+    public List<Product> listAll() {
         return (List<Product>) repo.findAll();
     }
 
-    public void save(Product product){
+    public void save(Product product) {
         repo.save(product);
+    }
+
+    public void deleteAllProducts() {
+        repo.deleteAll();
     }
 }
