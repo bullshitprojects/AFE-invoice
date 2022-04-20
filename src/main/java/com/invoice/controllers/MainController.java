@@ -11,6 +11,7 @@ public class MainController {
     @GetMapping("")
     public String homePage(Model model){
         model.addAttribute("product", new Product());
+
         return "index";
 
     }
