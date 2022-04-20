@@ -14,10 +14,124 @@
     background: -webkit-linear-gradient(top left, #2C2A31, #37344A);
     background: -moz-linear-gradient(top left, #2C2A31, #37344A);
     background: linear-gradient(to bottom right, #2C2A31, #37344A);
-    margin-right: 0.5rem;
 }
 
 .form-control {
     background: transparent !important;
+    border: none;
+    border-bottom: 1px solid #999999;
+    border-radius: 0 !important;
+    color: #fafafa !important;
+    transition: 0.7s all;
+}
 
+.form-control:focus {
+    border-color: #eeeeee;
+}
+
+.submit,
+.clean {
+    padding: 0.6em 1em;
+    border: none;
+    outline: none;
+    background: #D3CCE3;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #363836;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.submit:before,
+.clean:before {
+    content: "";
+    background: linear-gradient(
+            45deg,
+            #ff0000,
+            #ff7300,
+            #fffb00,
+            #48ff00,
+            #00ffd5,
+            #002bff,
+            #7a00ff,
+            #ff00c8,
+            #ff0000
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowingbn5 20s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+@keyframes glowingbn5 {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 400% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.submit:active,
+.clean:active {
+    color: #000;
+}
+
+.submit:active:after,
+.clean:active:after {
+    background: transparent;
+}
+
+.submit:hover:before,
+.clean:hover:before {
+    opacity: 1;
+}
+
+.submit:after,
+.clean:after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #D3CCE3;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #E9E4F0, #D3CCE3);
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+    box-shadow: none !important;
+    outline: 0 none !important;
 }
