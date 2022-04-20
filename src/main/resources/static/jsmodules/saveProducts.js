@@ -29,6 +29,14 @@ const errorMessage = () => {
     })
 }
 
+const errorDuplicatedCode = () => {
+    Swal.fire({
+        icon: 'error',
+        text: 'El codigo de producto ya ha sido ingresado!',
+        confirmButtonText: 'Aceptar'
+    })
+}
+
 const saveProduct = () => {
     $(document).delegate(submitButton, 'click', (e) => {
         e.preventDefault()
@@ -40,28 +48,31 @@ const saveProduct = () => {
         const quantity = $('#cantidad').val()
         const unit_price = $('#precio').val()
 
-        // PREPARE OBJECT
-        const data = {
-            code,
-            name,
-            description,
-            quantity,
-            unit_price
-        }
-
-        $.ajax({
-            ...postConfigs,
-            data: JSON.stringify({...data}),
-            success: () => {
-                successSaveMessage()
-                getProducts()
-                clearFields()
-            },
-            error: () => {
-                errorMessage()
+        if (code.length > 0 && name.length > 0 && description.length > 0 && quantity.length > 0 && unit_price.length > 0) {
+            // PREPARE OBJECT
+            const data = {
+                code,
+                name,
+                description,
+                quantity,
+                unit_price
             }
-        })
 
+            $.ajax({
+                ...postConfigs,
+                data: JSON.stringify({...data}),
+                success: () => {
+                    successSaveMessage()
+                    getProducts(true)
+                    clearFields()
+                },
+                error: () => {
+                    errorDuplicatedCode()
+                }
+            })
+        } else {
+            errorMessage()
+        }
     })
 }
 

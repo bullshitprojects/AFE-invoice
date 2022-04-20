@@ -28,3 +28,6 @@ validations()
 
 // PREPARE ACTION FOR INVOICE
 invoice()
+
+// CALL ANIMATIONS ON LOAD
+animations()

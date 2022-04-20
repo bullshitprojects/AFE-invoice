@@ -1,7 +1,7 @@
 // GET PRODUCT DATA FROM ENDPOINT
 const urlGetProducts = 'http://localhost:8080/product'
 
-const getProducts = () => {
+const getProducts = (isNewProduct) => {
     $(document).ready(() => {
         // CLEAR TABLE CONTENT
         $('#productData').html('')
@@ -12,16 +12,29 @@ const getProducts = () => {
             const row = []
 
             for (let i = 0; i < json.length; i++) {
-                row.push('<tr>')
-                row.push(`<td> ${json[i].code} </td>`)
-                row.push(`<td> ${json[i].name} </td>`)
-                row.push(`<td> ${json[i].description} </td>`)
-                row.push(`<td> ${json[i].quantity} </td>`)
-                row.push(`<td> $${json[i].unit_price.toFixed(2)} </td>`)
-                // GET SUBTOTAL
-                const subtotal = json[i].quantity * json[i].unit_price
+                if(isNewProduct && i == (json.length - 1)){
+                    row.push('<tr>')
+                    row.push(`<td class="slide-in-bottom"> ${json[i].code} </td>`)
+                    row.push(`<td class="slide-in-bottom"> ${json[i].name} </td>`)
+                    row.push(`<td class="slide-in-bottom"> ${json[i].description} </td>`)
+                    row.push(`<td class="slide-in-bottom"> ${json[i].quantity} </td>`)
+                    row.push(`<td class="slide-in-bottom"> $${json[i].unit_price.toFixed(2)} </td>`)
+                    // GET SUBTOTAL
+                    const subtotal = json[i].quantity * json[i].unit_price
 
-                row.push(`<td> $${subtotal.toFixed(2)} </td>`)
+                    row.push(`<td class="slide-in-bottom"> $${subtotal.toFixed(2)} </td>`)
+                } else {
+                    row.push('<tr>')
+                    row.push(`<td> ${json[i].code} </td>`)
+                    row.push(`<td> ${json[i].name} </td>`)
+                    row.push(`<td> ${json[i].description} </td>`)
+                    row.push(`<td> ${json[i].quantity} </td>`)
+                    row.push(`<td> $${json[i].unit_price.toFixed(2)} </td>`)
+                    // GET SUBTOTAL
+                    const subtotal = json[i].quantity * json[i].unit_price
+
+                    row.push(`<td> $${subtotal.toFixed(2)} </td>`)
+                }
             }
 
             if (json.length >= 1) {

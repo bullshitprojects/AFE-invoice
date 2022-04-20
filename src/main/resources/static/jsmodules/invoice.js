@@ -1,4 +1,7 @@
 const urlGetProducts = 'http://localhost:8080/product'
+const invoiceInfo = `
+    <p class="text-end fw-bold text-danger">Factura No ${Math.floor(Math.random() * (99999 - 1000 + 1)) + 1000}</p>
+    <p class="text-center mt-4">Detalle de factura</p>`
 
 const invoice = () => {
     $(document).delegate('#print', 'click', (e) => {
@@ -20,6 +23,7 @@ const invoice = () => {
 
         // GET DATA
         $.getJSON(urlGetProducts, (json) => {
+            row.push(invoiceInfo)
             row.push(tableBeginning)
             let total = 0
             for (let i = 0; i < json.length; i++) {
