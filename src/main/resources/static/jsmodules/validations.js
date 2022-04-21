@@ -37,6 +37,12 @@ const validations = () => {
             }
         })
 
+        $('#cantidad').on('input', (e) => {
+            if ($('#cantidad').val()[0] == '0') {
+                $('#cantidad').val('')
+            }
+        })
+
         $('#precio').keydown((e) => {
             if (invalidChars.includes(e.key)) {
                 e.preventDefault()
